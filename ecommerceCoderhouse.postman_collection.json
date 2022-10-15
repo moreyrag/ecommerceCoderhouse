@@ -1,0 +1,347 @@
+{
+	"info": {
+		"_postman_id": "4737e4e2-eaa6-43db-aa1c-56818a5f0865",
+		"name": "ecommerceCoderhouse",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get_inventario_productos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/inventario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"inventario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_inventario_producto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/inventario/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"inventario",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post_inventario_producto1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"titulo1\",\r\n    \"precio\": \"10.11\",\r\n    \"foto\": \"https://cdn-icons-png.flaticon.com/128/8597/8597945.png\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/inventario?admin=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"inventario"
+					],
+					"query": [
+						{
+							"key": "admin",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post_inventario_producto2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"titulo2\",\r\n    \"precio\": \"20.22\",\r\n    \"foto\": \"https://cdn-icons-png.flaticon.com/128/8597/8597945.png\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/inventario?admin=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"inventario"
+					],
+					"query": [
+						{
+							"key": "admin",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post_inventario_producto3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"titulo3\",\r\n    \"precio\": \"30.33\",\r\n    \"foto\": \"https://cdn-icons-png.flaticon.com/128/8597/8597945.png\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/inventario?admin=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"inventario"
+					],
+					"query": [
+						{
+							"key": "admin",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_inventario_producto",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/inventario/4?admin=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"inventario",
+						"4"
+					],
+					"query": [
+						{
+							"key": "admin",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put_inventario_producto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"titulo5\",\r\n    \"precio\": \"\",\r\n    \"foto\": \"https://cdn-icons-png.flaticon.com/128/8597/8597945.png\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/inventario/3?admin=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"inventario",
+						"3"
+					],
+					"query": [
+						{
+							"key": "admin",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_carritos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/carritos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"carritos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_carrito",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/carritos/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"carritos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post_carrito",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"titulo1\",\r\n    \"precio\": \"10.11\",\r\n    \"foto\": \"https://cdn-icons-png.flaticon.com/128/8597/8597945.png\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/carritos?admin=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"carritos"
+					],
+					"query": [
+						{
+							"key": "admin",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_carrito",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/carritos/2?admin=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"carritos",
+						"2"
+					],
+					"query": [
+						{
+							"key": "admin",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post_carrito_agregar_prod",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"titulo1\",\r\n    \"precio\": \"10.11\",\r\n    \"foto\": \"https://cdn-icons-png.flaticon.com/128/8597/8597945.png\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/carritos/2/productos/3?admin=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"carritos",
+						"2",
+						"productos",
+						"3"
+					],
+					"query": [
+						{
+							"key": "admin",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
