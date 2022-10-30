@@ -1,25 +1,23 @@
 import express from "express"
-import Carritos from "../clases/Baskets.js"
-import { validarAdmin } from "../clases/Common.js"
+import Carritos from "../controllers/BasketsController.js"
+import { validarAdmin } from "../lib/Common.js"
 
 const router = express.Router()
-const rutaFileCarritos = "./carritos.json"
-const rutaFileProductos = "./productos.json"
 
-const carritos = new Carritos(rutaFileProductos, rutaFileCarritos)
+const carritos = new Carritos()
 
 router.get("/", async (req, res) => {
-	const listaCarritos = await carritos.obtenerCarritos()
+	const listaCarritos = await carritos.obtenerBaskets()
 	res.send(listaCarritos)
 })
 
 router.get("/:id", async (req, res) => {
-	const carrito = await carritos.obtenerCarritoPorId(req.params.id)
+	const carrito = await carritos.obtenerBasketPorId(req.params.id)
 	res.send(carrito)
 })
 
 router.post("/", validarAdmin, async (req, res) => {
-	const carrito = await carritos.crearCarrito()
+	const carrito = await carritos.agregarBasket()
 	res.send(carrito)
 })
 
@@ -29,12 +27,12 @@ router.post("/:idCarrito/productos/:idProducto", validarAdmin, async (req, res) 
 })
 
 router.delete("/:id", validarAdmin, async (req, res) => {
-	const carrito = await carritos.borrarCarritoPorId(req.params.id)
+	const carrito = await carritos.borrarBasketPorId(req.params.id)
 	res.send(carrito)
 })
 
 router.put("/:id", validarAdmin, async (req, res) => {
-	let newcarrito = await carritos.actualizaCarrito(req.params.id, req.body)
+	let newcarrito = await carritos.actualizaBasket(req.params.id, req.body)
 	res.send(newcarrito)
 })
 

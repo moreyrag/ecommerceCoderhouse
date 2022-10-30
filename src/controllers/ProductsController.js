@@ -1,26 +1,23 @@
-import Producto from "./Product.js"
-// import FileManager from "./FileManager.js"
-import DbManager from "./DbManager.js"
+import {uri} from '../config/optionsmongodbatlas.js'
+import ContainerMongoDbAtlas from '../containers/ContainerProductsMongoDbAtlas.js'
 
-export default class ProductsInventory{
-	constructor (options, tabla){
-		this.db  = new DbManager(options, tabla)
+export default class ProductsController extends ContainerMongoDbAtlas{
+	constructor (){
+		super(uri)
 	}
 
 	async obtenerProductos(){
-		const productos = await this.db.getAll()
+		const productos = await this.getAll()
 		return productos? productos: {error: "inventario vacio"}
 	}
 
 	async obtenerProductoPorId(id){
-		const productos = await this.obtenerProductos()
-		if (productos.error !== undefined) {
+		try {
+			return await this.getById(id)
+		} catch (error) {
 			return { error: "producto no encontrado" }
 		}
 		
-		let producto = productos.find(prod=>prod.id===parseInt(id))
-
-		return producto || { error: "producto no encontrado" }
     }
 
 	async agregarProducto(producto){
@@ -45,9 +42,7 @@ export default class ProductsInventory{
 				producto.stock=0
 			}
 
-			await this.db.saveObject(producto) 
-
-			return producto
+			return await this.saveObject(producto) 
 		}
 		else {
 			return { error: "titulo, precio e imagen no pueden estar vacias y precio debe ser un numero" }
@@ -55,22 +50,14 @@ export default class ProductsInventory{
 	}
 
 	async borrarProductoPorId(id){
-		const productos = await this.obtenerProductos()
-		let pos = productos.findIndex((prod) => prod.id == parseInt(id))
-		if (pos != -1) {
-			let producto = productos[pos]
-			productos.splice(pos, 1)
-			await this.db.saveAll(productos)
-			return producto
-		} else {
+		try {
+			return await this.deleteById(id)
+		} catch (error) {
 			return { error: "producto no encontrado" }
 		}
     }
 	async actualizaProducto(id, producto){
-		const productos = await this.obtenerProductos()
-		const pos = productos.findIndex((prod) => prod.id == parseInt(id))
-
-		if (pos != -1) {
+		try {
 			if (
 				(producto.nombre !== undefined && producto.nombre.trim() !== ""  && producto.nombre !== null)
 				||
@@ -78,34 +65,31 @@ export default class ProductsInventory{
 				||
 				(producto.foto !== undefined && producto.foto.trim() !== "" && producto.foto !== null)
 			){
-				let oldprod = productos[pos]
+				let oldprod = await this.getById(id)
 
 				if (producto.nombre.trim() == "") {producto.nombre = undefined}
 				if (producto.precio.trim() == "") {producto.precio = undefined}
-				if (producto.foto.trim() == "") {producto.precio = undefined}
-				
-				/*
-				if (producto.descripcion.trim() == "") {producto.descripcion = undefined}
-				if (producto.codigo.trim() == "") {producto.codigo = undefined}
-				if (producto.stock.trim() == "") {producto.stock = undefined}
-				*/
+				if (producto.foto.trim() == "") {producto.foto = undefined}
 
-				let newproduct = new Producto(producto.nombre??oldprod.nombre, producto.precio??oldprod.precio, 
-					producto.foto??oldprod.foto, producto.descripcion??oldprod.descripcion, 
-					producto.codigo??oldprod.codigo, producto.stock??oldprod.stock
-					)
-				newproduct.id = oldprod.id
+				let newproduct = {
+						"nombre": producto.nombre??oldprod.nombre, 
+						"precio": producto.precio??oldprod.precio,
+						"foto": producto.foto??oldprod.foto, 
+						"descripcion": producto.descripcion??oldprod.descripcion,
+						"codigo": producto.codigo??oldprod.codigo, 
+						"stock": producto.stock??oldprod.stock
+				}
+				newproduct._id = oldprod._id
 				newproduct.timeStamp = oldprod.timeStamp
-				productos.splice(pos, 1, newproduct)
 
-				await this.db.saveAll(productos)
-
+				await this.updateRow(newproduct)
 				return newproduct
+
 			}
 			else{
 				return { error: "titulo, precio e imagen no pueden estar vacias y precio debe ser un numero" }
 			}
-		} else {
+		} catch (error) {
 			return { error: "producto no encontrado" }
 		}
 	}

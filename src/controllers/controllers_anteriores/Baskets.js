@@ -1,5 +1,5 @@
-import InventarioProductos from "./ProductsInventory.js"
-import FileManager from "./FileManager.js"
+import InventarioProductos from "../ProductsController.js"
+import FileManager from "../models/FileManager.js"
 export default class Baskets {
 	constructor(rutaFileProductos, rutaFileCarritos) {
 		this.productos = new InventarioProductos(rutaFileProductos) // crea el archivo de productos si ya no existe, con el array []

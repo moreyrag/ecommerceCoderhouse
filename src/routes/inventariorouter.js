@@ -1,12 +1,10 @@
 import express from "express"
-import Inventario from "../clases/ProductsInventory.js"
-import { validarAdmin } from "../clases/Common.js"
+import Inventario from "../controllers/ProductsController.js"
+import { validarAdmin } from "../lib/Common.js"
 
 const router = express.Router()
-const rutaFileProductos = "./productos.json"
 
-const inventario = new Inventario(rutaFileProductos)
-
+const inventario = new Inventario()
 
 router.get("/", async (req, res) => {
 	const productos = await inventario.obtenerProductos()

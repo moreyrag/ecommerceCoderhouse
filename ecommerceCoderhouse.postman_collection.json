@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "4737e4e2-eaa6-43db-aa1c-56818a5f0865",
+		"_postman_id": "1aa6061e-6990-4b8d-bdaa-a7b9c81d9bcf",
 		"name": "ecommerceCoderhouse",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7015591"
 	},
 	"item": [
 		{
@@ -30,7 +31,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/inventario/2",
+					"raw": "http://localhost:8080/inventario/635e9a65cb31a4b0af59c898",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -38,7 +39,7 @@
 					"port": "8080",
 					"path": [
 						"inventario",
-						"2"
+						"635e9a65cb31a4b0af59c898"
 					]
 				}
 			},
@@ -152,7 +153,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/inventario/4?admin=true",
+					"raw": "http://localhost:8080/inventario/635e9a65cb31a4b0af59c898?admin=true",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -160,7 +161,7 @@
 					"port": "8080",
 					"path": [
 						"inventario",
-						"4"
+						"635e9a65cb31a4b0af59c898"
 					],
 					"query": [
 						{
@@ -179,7 +180,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\": \"titulo5\",\r\n    \"precio\": \"\",\r\n    \"foto\": \"https://cdn-icons-png.flaticon.com/128/8597/8597945.png\"\r\n}",
+					"raw": "{\r\n    \"nombre\": \"titulo10\",\r\n    \"precio\": \"\",\r\n    \"foto\": \"https://cdn-icons-png.flaticon.com/128/8597/8597945.png\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -187,7 +188,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/inventario/3?admin=true",
+					"raw": "http://localhost:8080/inventario/635e9b73cb31a4b0af59c8a7?admin=true",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -195,7 +196,7 @@
 					"port": "8080",
 					"path": [
 						"inventario",
-						"3"
+						"635e9b73cb31a4b0af59c8a7"
 					],
 					"query": [
 						{
@@ -232,7 +233,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/carritos/2",
+					"raw": "http://localhost:8080/carritos/635e9c24cb31a4b0af59c8b2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -240,7 +241,7 @@
 					"port": "8080",
 					"path": [
 						"carritos",
-						"2"
+						"635e9c24cb31a4b0af59c8b2"
 					]
 				}
 			},
@@ -253,7 +254,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\": \"titulo1\",\r\n    \"precio\": \"10.11\",\r\n    \"foto\": \"https://cdn-icons-png.flaticon.com/128/8597/8597945.png\"\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -286,7 +287,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/carritos/2?admin=true",
+					"raw": "http://localhost:8080/carritos/635e9c24cb31a4b0af59c8b1?admin=true",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -294,7 +295,7 @@
 					"port": "8080",
 					"path": [
 						"carritos",
-						"2"
+						"635e9c24cb31a4b0af59c8b1"
 					],
 					"query": [
 						{
@@ -313,7 +314,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\": \"titulo1\",\r\n    \"precio\": \"10.11\",\r\n    \"foto\": \"https://cdn-icons-png.flaticon.com/128/8597/8597945.png\"\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -321,7 +322,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/carritos/2/productos/3?admin=true",
+					"raw": "http://localhost:8080/carritos/635e9df293ffbbf3bfec6d8b/productos/635e9b73cb31a4b0af59c8a7?admin=true",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -329,9 +330,9 @@
 					"port": "8080",
 					"path": [
 						"carritos",
-						"2",
+						"635e9df293ffbbf3bfec6d8b",
 						"productos",
-						"3"
+						"635e9b73cb31a4b0af59c8a7"
 					],
 					"query": [
 						{
