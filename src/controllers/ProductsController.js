@@ -6,78 +6,78 @@ export default class ProductsController extends ContainerMongoDbAtlas{
 		super(uri)
 	}
 
-	async obtenerProductos(){
-		const productos = await this.getAll()
-		return productos? productos: {error: "inventario vacio"}
+	async getProducts(){
+		const products = await this.getAll()
+		return products? products: {error: "inventory is empty"}
 	}
 
-	async obtenerProductoPorId(id){
+	async getProductById(id){
 		try {
 			return await this.getById(id)
 		} catch (error) {
-			return { error: "producto no encontrado" }
+			return { error: "product not found" }
 		}
 		
     }
 
-	async agregarProducto(producto){
-		// descripcion, codigo y stock pueden venir en null/vacios/undefined
+	async addProduct(product){
+		// description, code and stock can be null/empty/undefined
 		if (
-				producto.nombre !== undefined 
-				&& producto.nombre.trim() !== "" 
-				&& producto.nombre !== null
-				&& producto.precio !== undefined 
-				&& producto.precio !== "" 
-				&& producto.precio !== null
-				&& (parseFloat(producto.precio)) 
-				&& producto.foto !== undefined 
-				&& producto.foto.trim() !== "" 
-				&& producto.foto !== null
+			product.name !== undefined 
+				&& product.name.trim() !== "" 
+				&& product.name !== null
+				&& product.price !== undefined 
+				&& product.price !== "" 
+				&& product.price !== null
+				&& (parseFloat(product.price)) 
+				&& product.image !== undefined 
+				&& product.image.trim() !== "" 
+				&& product.image !== null
 			){
 
 			
-			producto.timeStamp = new Date(Date.now())
+				product.timeStamp = new Date(Date.now())
 
-			if (!producto.stock){
-				producto.stock=0
+			if (!product.stock){
+				product.stock=0
 			}
 
-			return await this.saveObject(producto) 
+			return await this.saveObject(product) 
 		}
 		else {
-			return { error: "titulo, precio e imagen no pueden estar vacias y precio debe ser un numero" }
+			return { error: "title, price and image can't be empty, and price must be a number" }
 		}
 	}
 
-	async borrarProductoPorId(id){
+	async deleteProductById(id){
 		try {
 			return await this.deleteById(id)
 		} catch (error) {
-			return { error: "producto no encontrado" }
+			return { error: "product not found" }
 		}
     }
-	async actualizaProducto(id, producto){
+	async updateProduct(id, product){
 		try {
 			if (
-				(producto.nombre !== undefined && producto.nombre.trim() !== ""  && producto.nombre !== null)
+				(product.name !== undefined && product.name.trim() !== ""  && product.name !== null)
 				||
-				(producto.precio !== undefined && producto.precio !== ""  && producto.precio !== null && (parseFloat(producto.precio)))
+				(product.price !== undefined && product.price !== ""  && product.price !== null && (parseFloat(product.price)))
 				||
-				(producto.foto !== undefined && producto.foto.trim() !== "" && producto.foto !== null)
+				(product.image !== undefined && product.image.trim() !== "" && product.image !== null)
 			){
 				let oldprod = await this.getById(id)
 
-				if (producto.nombre.trim() == "") {producto.nombre = undefined}
-				if (producto.precio.trim() == "") {producto.precio = undefined}
-				if (producto.foto.trim() == "") {producto.foto = undefined}
+				if (product.name.trim() == "") {product.name = undefined}
+				if (product.price.trim() == "") {product.price = undefined}
+				if (product.image.trim() == "") {product.image = undefined}
 
 				let newproduct = {
-						"nombre": producto.nombre??oldprod.nombre, 
-						"precio": producto.precio??oldprod.precio,
-						"foto": producto.foto??oldprod.foto, 
-						"descripcion": producto.descripcion??oldprod.descripcion,
-						"codigo": producto.codigo??oldprod.codigo, 
-						"stock": producto.stock??oldprod.stock
+						"name": product.name??oldprod.name, 
+						"price": product.price??oldprod.price,
+						"image": product.image??oldprod.image, 
+						"description": product.description??oldprod.description,
+						"code": product.code??oldprod.code, 
+						"stock": product.stock??oldprod.stock
 				}
 				newproduct._id = oldprod._id
 				newproduct.timeStamp = oldprod.timeStamp
@@ -87,10 +87,10 @@ export default class ProductsController extends ContainerMongoDbAtlas{
 
 			}
 			else{
-				return { error: "titulo, precio e imagen no pueden estar vacias y precio debe ser un numero" }
+				return { error: "title, price and image can't be empty and price must be a number" }
 			}
 		} catch (error) {
-			return { error: "producto no encontrado" }
+			return { error: "product not found" }
 		}
 	}
 }

@@ -1,17 +1,17 @@
 import express from "express"
-import routerCarrito from "./routes/carritosrouter.js"
-import routerInventario from "./routes/inventariorouter.js"
+import routerCart from "./routes/cartsrouter.js"
+import routerInventory from "./routes/inventoryrouter.js"
 
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static("../public"))
-app.use("/inventario", routerInventario)
-app.use("/carritos", routerCarrito)
+app.use("/api/productos", routerInventory)
+app.use("/api/carritos", routerCart)
 
 const PORT = 8080
 
 const server = app.listen(PORT, () => {
-	console.log(`Servidor http iniciado escuchando en el puerto ${server.address().port}`)
+	console.log(`Http server started on port ${server.address().port}`)
 })
-server.on("error", (error) => console.log(`Error en servidor ${error}`))
+server.on("error", (error) => console.log(`Error in server ${error}`))

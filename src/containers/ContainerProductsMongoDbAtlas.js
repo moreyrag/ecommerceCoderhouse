@@ -7,42 +7,42 @@ export default class ContainerMongoDbAtlas {
             this.uri = uri
             this.mongodb = mongoose.connect
         } catch (error) {
-            throw new Error("error al inicializar el contenedor:" + error.message)
+            throw new Error("error initializing the container:" + error.message)
         }
     }
 
-    async saveObject(objeto){
+    async saveObject(product){
         try {
-            if (objeto!==null && objeto!==undefined){
+            if (product!==null && product!==undefined){
                 // ya existe el objeto? por como se hizo habria que buscar por nombre
                 // let obj = await this.getById(objeto.id) 
                 // if (obj == undefined) {
                     // insertar
-                    return await this.insertRow(objeto)
+                    return await this.insertRow(product)
                // } else{
                     // actualizar
                     // await this.updateRow(obj, objeto)
                 //}         
             }
         } catch (error) {
-            throw new Error("error al guardar el objeto:" + error.message)
+            throw new Error("error saving the product:" + error.message)
         }
     }
 
-    async insertRow(objeto){
+    async insertRow(product){
         await this.mongodb(this.uri)
-        const newProduct = new ProductModel(objeto)
+        const newProduct = new ProductModel(product)
         return await newProduct.save()
     }
 
     
-    async updateRow(objetoNew){
+    async updateRow(newProduct){
         try {
             await this.mongodb(this.uri)
-            await ProductModel.replaceOne({_id:objetoNew._id}, objetoNew)
+            await ProductModel.replaceOne({_id:objetoNew._id}, newProduct)
             return objetoNew
         } catch (error) {
-            throw new Error("error al actualizar el objeto:" + error.message)
+            throw new Error("error updating the product:" + error.message)
         }
     }
 
@@ -51,52 +51,51 @@ export default class ContainerMongoDbAtlas {
             await this.mongodb(this.uri)
             return await ProductModel.find()
         } catch (error) {
-            throw new Error("ocurrio un error en getAll al leer la base de datos:" + error.message)
+            throw new Error("error in getAll reading the database:" + error.message)
         }
     }
 
     async getById(id){
         try {
             await this.mongodb(this.uri)
-            const producto = await ProductModel.findById(id)
-            if (producto == null) {
-                throw new Error("producto no encontrado")
+            const product = await ProductModel.findById(id)
+            if (product == null) {
+                throw new Error("product not found")
             } else {
-                return producto
+                return product
             } 
         } catch (error) {
-            throw new Error("error al obtener el objeto por id:" + error.message)
+            throw new Error("error in getById of product:" + error.message)
         }
     }
 
-    // recibe un array de objetos
-    async saveAll(objetos){
+    async saveAll(products){
         try {
-            if (objetos !== null && objetos.length > 0) {
-                objetos.forEach(async (objeto) => {
-                    await this.saveObject(objeto) // inserta o actualiza segun corresponda
+            if (products !== null && products.length > 0) {
+                products.forEach(async (product) => {
+                    await this.saveObject(product) // insert or update
                 })   
             } else{
-                if (objetos !== null && objetos.length===0) { // borrar todos los registros
+                if (products !== null && products.length===0) { // delete all documents
                     await this.deleteAll()
                 }
             }
         } catch (error) {
-            throw new Error("ocurrio un error al almacenar los objetos:" + error.message)
+            throw new Error("error saving the products:" + error.message)
         }
     }
 
     async deleteById(id){
         try {
             await this.mongodb(this.uri)
-            const producto = await ProductModel.findByIdAndDelete(id)
-            if (producto == null) {
-                throw new Error("producto no encontrado")
+            const product = await ProductModel.findByIdAndDelete(id)
+            if (product == null) {
+                throw new Error("product not found")
             } else {
-                return producto
+                return product
             } 
         } catch (error) {
-            throw new Error("error al borrar objeto por id" + error.message)
+            throw new Error("error deleting product by id" + error.message)
         }
     }
 
@@ -105,7 +104,7 @@ export default class ContainerMongoDbAtlas {
            await this.mongodb(this.uri)
            await ProductModel.remove()    
         } catch (error) {
-            throw new Error("error al vaciar el contenedor" + error.message)
+            throw new Error("error to empty the containerr" + error.message)
         }
     }
 }
