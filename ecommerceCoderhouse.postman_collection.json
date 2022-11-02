@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1aa6061e-6990-4b8d-bdaa-a7b9c81d9bcf",
+		"_postman_id": "b0e3659b-d54d-42f5-8e69-1adcbcf9974f",
 		"name": "ecommerceCoderhouse",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7015591"
@@ -12,14 +12,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/inventario",
+					"raw": "http://localhost:8080/api/productos",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"inventario"
+						"api",
+						"productos"
 					]
 				}
 			},
@@ -31,14 +32,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/inventario/635e9a65cb31a4b0af59c898",
+					"raw": "http://localhost:8080/api/productos/635e9a65cb31a4b0af59c898",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"inventario",
+						"api",
+						"productos",
 						"635e9a65cb31a4b0af59c898"
 					]
 				}
@@ -52,7 +54,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\": \"titulo1\",\r\n    \"precio\": \"10.11\",\r\n    \"foto\": \"https://cdn-icons-png.flaticon.com/128/8597/8597945.png\"\r\n}",
+					"raw": "{\r\n    \"name\": \"titulo1\",\r\n    \"price\": \"10.11\",\r\n    \"image\": \"https://cdn-icons-png.flaticon.com/128/8597/8597945.png\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -60,14 +62,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/inventario?admin=true",
+					"raw": "http://localhost:8080/api/productos?admin=true",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"inventario"
+						"api",
+						"productos"
 					],
 					"query": [
 						{
@@ -86,7 +89,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\": \"titulo2\",\r\n    \"precio\": \"20.22\",\r\n    \"foto\": \"https://cdn-icons-png.flaticon.com/128/8597/8597945.png\"\r\n}",
+					"raw": "{\r\n    \"name\": \"titulo2\",\r\n    \"price\": \"20.22\",\r\n    \"image\": \"https://cdn-icons-png.flaticon.com/128/8597/8597945.png\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -94,14 +97,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/inventario?admin=true",
+					"raw": "http://localhost:8080/api/productos?admin=true",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"inventario"
+						"api",
+						"productos"
 					],
 					"query": [
 						{
@@ -120,7 +124,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\": \"titulo3\",\r\n    \"precio\": \"30.33\",\r\n    \"foto\": \"https://cdn-icons-png.flaticon.com/128/8597/8597945.png\"\r\n}",
+					"raw": "{\r\n    \"name\": \"titulo3\",\r\n    \"price\": \"30.33\",\r\n    \"image\": \"https://cdn-icons-png.flaticon.com/128/8597/8597945.png\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -128,14 +132,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/inventario?admin=true",
+					"raw": "http://localhost:8080/api/productos?admin=true",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"inventario"
+						"api",
+						"productos"
 					],
 					"query": [
 						{
@@ -153,14 +158,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/inventario/635e9a65cb31a4b0af59c898?admin=true",
+					"raw": "http://localhost:8080/api/productos/635e9a65cb31a4b0af59c898?admin=true",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"inventario",
+						"api",
+						"productos",
 						"635e9a65cb31a4b0af59c898"
 					],
 					"query": [
@@ -180,7 +186,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\": \"titulo10\",\r\n    \"precio\": \"\",\r\n    \"foto\": \"https://cdn-icons-png.flaticon.com/128/8597/8597945.png\"\r\n}",
+					"raw": "{\r\n    \"name\": \"titulo10\",\r\n    \"price\": \"\",\r\n    \"image\": \"https://cdn-icons-png.flaticon.com/128/8597/8597945.png\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -188,14 +194,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/inventario/635e9b73cb31a4b0af59c8a7?admin=true",
+					"raw": "http://localhost:8080/api/productos/635e9b73cb31a4b0af59c8a7?admin=true",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"inventario",
+						"api",
+						"productos",
 						"635e9b73cb31a4b0af59c8a7"
 					],
 					"query": [
@@ -214,13 +221,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/carritos",
+					"raw": "http://localhost:8080/api/carritos",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"carritos"
 					]
 				}
@@ -233,13 +241,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/carritos/635e9c24cb31a4b0af59c8b2",
+					"raw": "http://localhost:8080/api/carritos/635e9c24cb31a4b0af59c8b2",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"carritos",
 						"635e9c24cb31a4b0af59c8b2"
 					]
@@ -262,13 +271,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/carritos?admin=true",
+					"raw": "http://localhost:8080/api/carritos?admin=true",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"carritos"
 					],
 					"query": [
@@ -287,13 +297,14 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/carritos/635e9c24cb31a4b0af59c8b1?admin=true",
+					"raw": "http://localhost:8080/api/carritos/635e9c24cb31a4b0af59c8b1?admin=true",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"carritos",
 						"635e9c24cb31a4b0af59c8b1"
 					],
@@ -322,16 +333,17 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/carritos/635e9df293ffbbf3bfec6d8b/productos/635e9b73cb31a4b0af59c8a7?admin=true",
+					"raw": "http://localhost:8080/api/carritos/635e9df293ffbbf3bfec6d8b/products/635e9b73cb31a4b0af59c8a7?admin=true",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"carritos",
 						"635e9df293ffbbf3bfec6d8b",
-						"productos",
+						"products",
 						"635e9b73cb31a4b0af59c8a7"
 					],
 					"query": [
