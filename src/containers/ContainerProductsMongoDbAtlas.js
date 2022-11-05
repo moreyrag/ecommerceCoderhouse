@@ -39,8 +39,8 @@ export default class ContainerMongoDbAtlas {
     async updateRow(newProduct){
         try {
             await this.mongodb(this.uri)
-            await ProductModel.replaceOne({_id:objetoNew._id}, newProduct)
-            return objetoNew
+            await ProductModel.replaceOne({_id:newProduct._id}, newProduct)
+            return newProduct
         } catch (error) {
             throw new Error("error updating the product:" + error.message)
         }
@@ -104,7 +104,7 @@ export default class ContainerMongoDbAtlas {
            await this.mongodb(this.uri)
            await ProductModel.remove()    
         } catch (error) {
-            throw new Error("error to empty the containerr" + error.message)
+            throw new Error("error to empty the container" + error.message)
         }
     }
 }

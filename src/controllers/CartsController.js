@@ -8,7 +8,7 @@ export default class CartsController extends ContainerMongoDbAtlas{
 
 	async getCarts(){
 		const carts = await this.getAll()
-		return carts? carts: {error: "there isn't carts"}
+		return carts? carts: {error: "there aren't carts"}
 	}
 
 	async getCartById(id){
@@ -53,7 +53,7 @@ export default class CartsController extends ContainerMongoDbAtlas{
         try {
             return await super.addProductToCart(idProduct, idCart)
         } catch (error) {
-            return { error: "error trying add product to cart " }
+            return { error: "error adding product to cart " }
         }
     }
 }

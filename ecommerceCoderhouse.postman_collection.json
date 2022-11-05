@@ -27,12 +27,32 @@
 			"response": []
 		},
 		{
+			"name": "get_inventario_productos_fake",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/productos-test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"productos-test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "get_inventario_producto",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/productos/635e9a65cb31a4b0af59c898",
+					"raw": "http://localhost:8080/api/productos/6364438635af842443570df4",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -41,7 +61,7 @@
 					"path": [
 						"api",
 						"productos",
-						"635e9a65cb31a4b0af59c898"
+						"6364438635af842443570df4"
 					]
 				}
 			},
@@ -158,7 +178,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/productos/635e9a65cb31a4b0af59c898?admin=true",
+					"raw": "http://localhost:8080/api/productos/6364438635af842443570df4?admin=true",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -167,7 +187,7 @@
 					"path": [
 						"api",
 						"productos",
-						"635e9a65cb31a4b0af59c898"
+						"6364438635af842443570df4"
 					],
 					"query": [
 						{
@@ -194,7 +214,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/productos/635e9b73cb31a4b0af59c8a7?admin=true",
+					"raw": "http://localhost:8080/api/productos/6361dc5d20b0229215a35f88?admin=true",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -203,7 +223,7 @@
 					"path": [
 						"api",
 						"productos",
-						"635e9b73cb31a4b0af59c8a7"
+						"6361dc5d20b0229215a35f88"
 					],
 					"query": [
 						{
@@ -241,7 +261,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/carritos/635e9c24cb31a4b0af59c8b2",
+					"raw": "http://localhost:8080/api/carritos/6361dcf920b0229215a35f8e",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -250,7 +270,7 @@
 					"path": [
 						"api",
 						"carritos",
-						"635e9c24cb31a4b0af59c8b2"
+						"6361dcf920b0229215a35f8e"
 					]
 				}
 			},
@@ -297,7 +317,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/carritos/635e9c24cb31a4b0af59c8b1?admin=true",
+					"raw": "http://localhost:8080/api/carritos/6361dcf920b0229215a35f8e?admin=true",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -306,7 +326,7 @@
 					"path": [
 						"api",
 						"carritos",
-						"635e9c24cb31a4b0af59c8b1"
+						"6361dcf920b0229215a35f8e"
 					],
 					"query": [
 						{
@@ -333,7 +353,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/carritos/635e9df293ffbbf3bfec6d8b/products/635e9b73cb31a4b0af59c8a7?admin=true",
+					"raw": "http://localhost:8080/api/carritos/6364498c8944afa52a941f36/products/6361dc2c20b0229215a35f84?admin=true",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -342,15 +362,244 @@
 					"path": [
 						"api",
 						"carritos",
-						"635e9df293ffbbf3bfec6d8b",
+						"6364498c8944afa52a941f36",
 						"products",
-						"635e9b73cb31a4b0af59c8a7"
+						"6361dc2c20b0229215a35f84"
 					],
 					"query": [
 						{
 							"key": "admin",
 							"value": "true"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_mensajes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/mensajes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mensajes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_mensaje",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/mensajes/63665d8b7adcfb4831251f4c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mensajes",
+						"63665d8b7adcfb4831251f4c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post_mensaje1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"author\": {\r\n        \"email\":\"correo1@hotmail.com\",\r\n        \"name\": \"nombre1\",\r\n        \"apellido\": \"apellido1\",\r\n        \"edad\": 10,\r\n        \"alias\": \"alias1\",\r\n        \"avatar\": \"http://avatar1.jpg\"\r\n    },\r\n    \"text\": \"texto 1\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/mensajes?admin=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mensajes"
+					],
+					"query": [
+						{
+							"key": "admin",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post_mensaje2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"author\": {\r\n        \"email\":\"correo2@hotmail.com\",\r\n        \"name\": \"nombre2\",\r\n        \"apellido\": \"apellido2\",\r\n        \"edad\": 20,\r\n        \"alias\": \"alias2\",\r\n        \"avatar\": \"http://avatar2.jpg\"\r\n    },\r\n    \"text\": \"texto 2\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/mensajes?admin=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mensajes"
+					],
+					"query": [
+						{
+							"key": "admin",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post_mensaje3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"author\": {\r\n        \"email\":\"correo3@hotmail.com\",\r\n        \"name\": \"nombre3\",\r\n        \"apellido\": \"apellido3\",\r\n        \"edad\": 30,\r\n        \"alias\": \"alias3\",\r\n        \"avatar\": \"http://avatar3.jpg\"\r\n    },\r\n    \"text\": \"texto 3\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/mensajes?admin=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mensajes"
+					],
+					"query": [
+						{
+							"key": "admin",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post_mensaje4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"author\": {\r\n        \"email\":\"correo2@hotmail.com\",\r\n        \"name\": \"nombre2\",\r\n        \"apellido\": \"apellido2\",\r\n        \"edad\": 20,\r\n        \"alias\": \"alias2\",\r\n        \"avatar\": \"http://avatar2.jpg\"\r\n    },\r\n    \"text\": \"texto 4\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/mensajes?admin=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mensajes"
+					],
+					"query": [
+						{
+							"key": "admin",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_mensaje",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/mensajes/6364438635af842443570df4?admin=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mensajes",
+						"6364438635af842443570df4"
+					],
+					"query": [
+						{
+							"key": "admin",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_mensajes_normalizados",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/mensajes/normalizados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mensajes",
+						"normalizados"
 					]
 				}
 			},
