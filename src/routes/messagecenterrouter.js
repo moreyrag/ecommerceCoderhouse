@@ -6,7 +6,7 @@ const router = express.Router()
 
 const messages = new Messages()
 
-console.log(messages)
+// console.log(messages)
 
 router.get("/", async (req, res) => {
 	const m = await messages.getMessages()

@@ -1,11 +1,152 @@
 {
 	"info": {
-		"_postman_id": "b0e3659b-d54d-42f5-8e69-1adcbcf9974f",
+		"_postman_id": "d86aa8c9-734d-4824-8ab2-3ec74d6b3313",
 		"name": "ecommerceCoderhouse",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7015591"
 	},
 	"item": [
+		{
+			"name": "pruebas_cookies",
+			"item": [
+				{
+					"name": "get_cookies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cookies/firmadas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cookies",
+								"firmadas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post_cookie_sin_tiempo1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"cookie1\",\r\n    \"valor\": \"valorcookie1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/cookies/firmadas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cookies",
+								"firmadas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post_cookie_sin_tiempo2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"cookie2\",\r\n    \"valor\": \"valorcookie2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/cookies/firmadas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cookies",
+								"firmadas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post_cookie_con_tiempo3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"cookie3\",\r\n    \"valor\": \"valorcookie3\",\r\n    \"tiempo\": 10000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/cookies/firmadas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cookies",
+								"firmadas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_cookie",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"cookie2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/cookies/firmadas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cookies",
+								"firmadas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
 		{
 			"name": "get_inventario_productos",
 			"request": {
