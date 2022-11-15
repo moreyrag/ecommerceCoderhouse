@@ -18,15 +18,42 @@
                 </button>
         </h1>
     </div>
+    <div class="container">
+        <div class="row">
+            <div id="idProductos">
+
+            </div>
+        </div>
+    </div>
     <script>
         async function getUserName() {
-            let res = await fetch("/username")
-            let username = await res.json()
+            const res = await fetch("/username")
+            const username = await res.json()
             return username
         }
-        let html = document.getElementById("usernameHome")
-        getUserName().then(username => html.innerHTML += username)
-        
+        const html = document.getElementById("usernameHome")
+        getUserName()
+            .then(username => {
+                html.innerHTML += username
+                localStorage.setItem("username", username)
+            })
+
+        async function getInventory() {
+            const inventoryjson = await fetch("/inventory")
+            return inventoryjson
+        }
+
+        getInventory()
+            .then((res)=>res.json())
+            .then((json)=>{
+                const prods = json.products
+                const htmlProds = document.getElementById("idProductos")
+                const strHtml = ""
+                prods.forEach(product => {
+                    htmlProds.innerHTML+="<strong>"+product.name+"</strong></br>"
+                })
+            })
+
     </script>
 </body>
 

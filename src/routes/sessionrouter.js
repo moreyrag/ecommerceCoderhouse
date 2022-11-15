@@ -6,6 +6,8 @@ import MongoStore from 'connect-mongo'
 import { webAuth } from "../lib/Common.js"
 import {uri} from '../config/optionsmongodbatlas.js'
 
+import {inventory} from "../routes/inventoryrouterfake.js" 
+
 const router = express.Router()
 
 router.use(session({
@@ -27,6 +29,8 @@ router.get('/', (req, res) => {
 })
 
 router.get('/home', webAuth, (req, res) => {
+    // res.json(controlador-->base de datos --> productos)
+    // res.json(inventory)
     res.sendFile(path.join(process.cwd(), '/views/home.html'))
 })
 
@@ -34,11 +38,16 @@ router.get('/username', webAuth, (req, res) => {
     res.json(getSessionName(req))
 })
 
+router.get('/inventory', webAuth, (req, res) => {
+    res.json(inventory)
+})
+
 router.get('/logout', (req, res) => {
     const username = req.session?.username
     if (username) {
         req.session.destroy(err => {
             if (!err) {
+                // console.log(username)
                 res.sendFile(path.join(process.cwd(), '/views/logout.html'))
             } else {
                 res.redirect('/')
