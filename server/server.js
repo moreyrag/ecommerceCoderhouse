@@ -1,18 +1,20 @@
 import express from "express"
-import routerCart from "./routes/cartsrouter.js"
-import routerInventory from "./routes/inventoryrouter.js"
-import routerMessageCenter from "./routes/messagecenterrouter.js"
-import routerSession from "./routes/sessionrouter.js"
+import routerCart from "./src/routes/cartsrouter.js"
+import routerInventory from "./src/routes/inventoryrouter.js"
+import routerMessageCenter from "./src/routes/messagecenterrouter.js"
+import routerSession from "./src/routes/sessionrouter.js"
+import cors from 'cors'
 
 const app = express()
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-app.use(express.static("../public"))
+// app.use(express.static("../public"))
 app.use("/api/productos", routerInventory)
 app.use("/api/carritos", routerCart)
 app.use("/api/mensajes", routerMessageCenter)
 app.use("/", routerSession)
+app.use(cors())
 
 const PORT = process.env.port || 8080
 
