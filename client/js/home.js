@@ -23,9 +23,10 @@ instance.get('username')
 
 btnLogout.addEventListener("click", (e)=>{
     e.preventDefault()
+    console.log("click logout")
+
     instance.get('logout')
     .then(function (response) {
-        console.log("hola")
 
         if (response.status==200 && response.data.result=="ok") {
             console.log(response)
