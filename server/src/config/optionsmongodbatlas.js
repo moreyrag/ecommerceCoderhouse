@@ -1,7 +1,7 @@
-export const uri = "mongodb+srv://ecommerce:ecommerce123@clustercursocoderhouse.n2h5tcv.mongodb.net/ecommerceDb?retryWrites=true&w=majority"
+export const uri = process.env.MONGODBCLOUD
 export const options = {
     useNewUrlParser:true,
     useUnifiedTopology:true
 }
 
-// export const uri = "mongodb://localhost:27017/ecommerceDb"
+// export const uri = process.env.MONGODBLOCAL
