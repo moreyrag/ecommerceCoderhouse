@@ -4,10 +4,15 @@ const numerosAleatorios = []
 const resultadoSorteo = {}
 
 process.on("message", msg=>{
-    let cantidad = parseInt(msg)
-    generaAleatorios(cantidad)
-    calculaResultadoSorteo()
-    process.send(resultadoSorteo)
+    let cantidad = isNaN(msg)? null : parseInt(msg)
+    if (cantidad) {
+        generaAleatorios(cantidad)
+        calculaResultadoSorteo()
+        process.send(resultadoSorteo)
+    } else {
+        process.send("error")
+    }
+
 })
 
 const generaAleatorios = (cantidadNumerosAleatorios)=>{

@@ -13,6 +13,10 @@ import dotenv from 'dotenv'
 
 import parseArgs from 'minimist'
 
+import { LogginServerEcommerce } from "./src/lib/Common.js"
+
+LogginServerEcommerce.setLevels()
+
 dotenv.config()
 // console.log(process.env.MONGODBCLOUD)
 // console.log(process.argv.slice(2))
@@ -31,6 +35,14 @@ app.use("/api", routerSession)
 app.use("/", routerSession)
 app.use("/info", routerInfo)
 app.use("/api/randoms", routerRandomNums)
+app.use((req, res, next)=>{
+	LogginServerEcommerce.logInfo(`Ruta: ${req.url}, metodo: ${req.method}`)
+	next()
+})
+app.use('*', (req,res)=>{
+	LogginServerEcommerce.logWarn('Ruta incorrecta: ' + req.url)
+	res.send('ruta incorrecta')
+})
 app.use(cors())
 
 // const PORT = process.env.port || 8080

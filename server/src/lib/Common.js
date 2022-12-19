@@ -1,6 +1,34 @@
 import util from 'util'
 // import {normalize, denormalize, schema} from 'normalizr'
 
+import pino from 'pino'
+
+export class LogginServerEcommerce{
+	static loggerError = pino("error.log")
+	static loggerWarning = pino("warning.log")
+	static loggerInfo = pino()
+
+	static setLevels(){
+		this.loggerError.level = "error"
+		this.loggerWarning.level = "warn"
+		this.loggerInfo.level = "info"
+	}
+
+	static logError(err){
+		this.loggerError.error(err)
+		this.loggerInfo.error(err)
+	}
+
+	static logInfo(info){
+		this.loggerInfo.info(info)
+	}
+
+	static logWarn(info){
+		this.loggerWarning.warn(info)
+		this.loggerInfo.warn(info)
+	}
+}
+
 export function validateAdmin(req, res, next) {
 	if (req.query.admin) {
 		next()
