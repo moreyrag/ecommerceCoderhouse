@@ -22,7 +22,7 @@ dotenv.config()
 // console.log(process.argv.slice(2))
 const args = parseArgs(process.argv.slice(2), {default: {PORT: '8080'}})
 // console.log(args.PORT)
-const PORT = args.PORT
+const PORT = process.env.PORT || args.PORT
 const app = express()
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())

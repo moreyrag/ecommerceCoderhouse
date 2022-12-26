@@ -1,3 +1,11 @@
+Desafio hosting en la nube del server desarrollado en Nodejs
+
+1 - Se crea cuenta en render.com 
+2 - Se configura para que se ejecute: npm install && npm install ./server
+3 - Ejecutar node ./server/server.js
+
+
+===============================
 Desafio Logs y Profiling
 -------------------------
 1. En ecommerceCoderhouse ejecutar "npm install"
